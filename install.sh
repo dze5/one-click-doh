@@ -66,7 +66,7 @@ echo -e '#!/bin/bash
 echo "https://1.1.1.1/dns-query
 https://hk-hkg.doh.sb/dns-query
 https://jp-nrt.doh.sb/dns-query" > /home/dnsproxy/list.txt'"
-curl -s https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf| awk -F'[=/]' '{print \"[/\" \$3 \"/]https://doh.pub/dns-query\"}' >> /home/dnsproxy/list.txt
+curl -s https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf| awk -F'[=/]' '{print \"[/\" \$3 \"/]https://223.5.5.5/dns-query\"}' >> /home/dnsproxy/list.txt
 systemctl restart dnsproxy" > /home/dnsproxy/update.sh
 (echo "0 */3 * * * bash /home/dnsproxy/update.sh" && crontab -l)|crontab
 #generate first
